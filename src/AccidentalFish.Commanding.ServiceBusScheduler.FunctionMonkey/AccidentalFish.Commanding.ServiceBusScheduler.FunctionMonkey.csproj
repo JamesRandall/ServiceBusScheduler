@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>James Randall</Authors>
+    <Company>Accidental Fish Ltd.</Company>
+    <Description>Simple Function Monkey extension for the service bus scheduler</Description>
+    <Copyright>(c) 2019 James Randall</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/JamesRandall/ServiceBusScheduler/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/JamesRandall/ServiceBusScheduler</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/JamesRandall/ServiceBusScheduler</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FunctionMonkey.Abstractions" Version="0.18.1-beta000" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccidentalFish.Commanding.ServiceBusScheduler.Abstractions\AccidentalFish.Commanding.ServiceBusScheduler.Abstractions.csproj" />
+    <ProjectReference Include="..\AccidentalFish.Commanding.ServiceBusScheduler\AccidentalFish.Commanding.ServiceBusScheduler.csproj" />
+  </ItemGroup>
+
+</Project>

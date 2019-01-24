@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>James Randall</Authors>
+    <Company>Accidental Fish Ltd.</Company>
+    <Description>Allows the Azure Service Bus to be used as a scheduler for commands.</Description>
+    <Copyright>(c) 2019 James Randall</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/JamesRandall/ServiceBusScheduler/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/JamesRandall/ServiceBusScheduler</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/JamesRandall/ServiceBusScheduler</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AzureFromTheTrenches.Commanding.Abstractions" Version="8.1.1" />
+    <PackageReference Include="Microsoft.Azure.ServiceBus" Version="3.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccidentalFish.Commanding.ServiceBusScheduler.Abstractions\AccidentalFish.Commanding.ServiceBusScheduler.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

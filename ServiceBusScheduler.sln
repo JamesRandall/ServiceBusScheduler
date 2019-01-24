@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{796EEEE4-1B62-4EF3-BA06-E8123746AB22}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccidentalFish.Commanding.ServiceBusScheduler.Abstractions", "src\AccidentalFish.Commanding.ServiceBusScheduler.Abstractions\AccidentalFish.Commanding.ServiceBusScheduler.Abstractions.csproj", "{4277EE94-3FE0-4AE8-AFF9-785E34E333AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccidentalFish.Commanding.ServiceBusScheduler", "src\AccidentalFish.Commanding.ServiceBusScheduler\AccidentalFish.Commanding.ServiceBusScheduler.csproj", "{86E1946C-FC65-4BBA-B721-3E4574591F5B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccidentalFish.Commanding.ServiceBusScheduler.FunctionMonkey", "src\AccidentalFish.Commanding.ServiceBusScheduler.FunctionMonkey\AccidentalFish.Commanding.ServiceBusScheduler.FunctionMonkey.csproj", "{9DE795B3-0598-4FC1-B510-914079898EF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1336BFEE-381E-497E-9EA7-2BCA0A19617C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccidentalFish.Commanding.ServiceBusScheduler.Tests", "tests\AccidentalFish.Commanding.ServiceBusScheduler.Tests\AccidentalFish.Commanding.ServiceBusScheduler.Tests.csproj", "{6EE35452-96A9-44C1-82B8-F0BB3844C287}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4277EE94-3FE0-4AE8-AFF9-785E34E333AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4277EE94-3FE0-4AE8-AFF9-785E34E333AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4277EE94-3FE0-4AE8-AFF9-785E34E333AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4277EE94-3FE0-4AE8-AFF9-785E34E333AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86E1946C-FC65-4BBA-B721-3E4574591F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E1946C-FC65-4BBA-B721-3E4574591F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E1946C-FC65-4BBA-B721-3E4574591F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86E1946C-FC65-4BBA-B721-3E4574591F5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DE795B3-0598-4FC1-B510-914079898EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DE795B3-0598-4FC1-B510-914079898EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DE795B3-0598-4FC1-B510-914079898EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DE795B3-0598-4FC1-B510-914079898EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EE35452-96A9-44C1-82B8-F0BB3844C287}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE35452-96A9-44C1-82B8-F0BB3844C287}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EE35452-96A9-44C1-82B8-F0BB3844C287}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EE35452-96A9-44C1-82B8-F0BB3844C287}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4277EE94-3FE0-4AE8-AFF9-785E34E333AA} = {796EEEE4-1B62-4EF3-BA06-E8123746AB22}
+		{86E1946C-FC65-4BBA-B721-3E4574591F5B} = {796EEEE4-1B62-4EF3-BA06-E8123746AB22}
+		{9DE795B3-0598-4FC1-B510-914079898EF9} = {796EEEE4-1B62-4EF3-BA06-E8123746AB22}
+		{6EE35452-96A9-44C1-82B8-F0BB3844C287} = {1336BFEE-381E-497E-9EA7-2BCA0A19617C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E6A903B-7EC5-4A4B-9FCB-ED16F761BB02}
+	EndGlobalSection
+EndGlobal
