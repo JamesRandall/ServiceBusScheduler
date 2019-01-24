@@ -9,7 +9,7 @@ using Xunit;
 
 namespace AccidentalFish.Commanding.ServiceBusScheduler.Tests.Services.Implementation.CommandScheduler
 {
-    public class ScheduleDailyCommand
+    public class ScheduleCommand
     {
         private readonly IQueueClientProvider _queueClientProvider = Substitute.For<IQueueClientProvider>();
 
@@ -20,7 +20,7 @@ namespace AccidentalFish.Commanding.ServiceBusScheduler.Tests.Services.Implement
 
         private readonly ServiceBusScheduler.Services.Implementation.CommandScheduler _testSubject;
 
-        public ScheduleDailyCommand()
+        public ScheduleCommand()
         {
             _queueClientProvider.QueueClient.Returns(_queueClient);
             _testSubject = new ServiceBusScheduler.Services.Implementation.CommandScheduler(_queueClientProvider, _cancelledCommandRepository);
@@ -30,7 +30,7 @@ namespace AccidentalFish.Commanding.ServiceBusScheduler.Tests.Services.Implement
         public async Task ShouldThrowExceptionOnNullCommand()
         {
             // Act
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _testSubject.ScheduleDailyCommand(null, null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _testSubject.ScheduleCommand(ScheduledMessageRecurrenceEnum.Daily, null, null));
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace AccidentalFish.Commanding.ServiceBusScheduler.Tests.Services.Implement
             SimpleSchedulableCommand command = new SimpleSchedulableCommand();
 
             // Act
-            await Assert.ThrowsAsync<ArgumentException>(() => _testSubject.ScheduleDailyCommand(command, scheduleDate));
+            await Assert.ThrowsAsync<ArgumentException>(() => _testSubject.ScheduleCommand(ScheduledMessageRecurrenceEnum.Daily, command, scheduleDate));
         }
 
         [Fact]
@@ -54,7 +54,7 @@ namespace AccidentalFish.Commanding.ServiceBusScheduler.Tests.Services.Implement
             await _queueClient.SendAsync(Arg.Do<Message>(m => capturedMessage = m));
 
             // Act
-            string messageId = await _testSubject.ScheduleDailyCommand(command, scheduleDate);
+            string messageId = await _testSubject.ScheduleCommand(ScheduledMessageRecurrenceEnum.Daily, command, scheduleDate);
 
             // Assert
             Assert.NotEmpty(messageId);
@@ -68,12 +68,11 @@ namespace AccidentalFish.Commanding.ServiceBusScheduler.Tests.Services.Implement
             // Arrange
             const string customMessageId = "1234";
             Message capturedMessage = null;
-            DateTime scheduleDate = DateTime.UtcNow.AddDays(1);
             SimpleSchedulableCommand command = new SimpleSchedulableCommand();
             await _queueClient.SendAsync(Arg.Do<Message>(m => capturedMessage = m));
 
             // Act
-            string messageId = await _testSubject.ScheduleDailyCommand(command, customMessageId);
+            string messageId = await _testSubject.ScheduleCommand(ScheduledMessageRecurrenceEnum.Daily, command, null, customMessageId);
 
             // Assert
             Assert.Equal(customMessageId, messageId);

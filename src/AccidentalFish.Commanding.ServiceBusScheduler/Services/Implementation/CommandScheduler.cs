@@ -18,27 +18,7 @@ namespace AccidentalFish.Commanding.ServiceBusScheduler.Services.Implementation
         {
             _queueClientProvider = queueClientProvider;
             _cancelledCommandRepository = cancelledCommandRepository;
-        }
-
-        public Task<string> ScheduleDailyCommand(ICommand<bool> command, DateTime initialExecutionDateTimeUtc, string optionalMessageId = null)
-        {
-            return ScheduleCommand(ScheduledMessageRecurrenceEnum.Daily, command, initialExecutionDateTimeUtc, optionalMessageId);
-        }
-
-        public Task<string> ScheduleDailyCommand(ICommand<bool> command, string optionalMessageId = null)
-        {
-            return ScheduleCommand(ScheduledMessageRecurrenceEnum.Daily, command, null, optionalMessageId);
-        }
-
-        public Task<string> ScheduleEachMinuteCommand(ICommand<bool> command, DateTime initialExecutionDateTimeUtc, string optionalMessageId = null)
-        {
-            return ScheduleCommand(ScheduledMessageRecurrenceEnum.Minute, command, initialExecutionDateTimeUtc, optionalMessageId);
-        }
-
-        public Task<string> ScheduleEachMinuteCommand(ICommand<bool> command, string optionalMessageId = null)
-        {
-            return ScheduleCommand(ScheduledMessageRecurrenceEnum.Minute, command, null, optionalMessageId);
-        }
+        }        
 
         public async Task Cancel(string commandId)
         {
@@ -46,12 +26,17 @@ namespace AccidentalFish.Commanding.ServiceBusScheduler.Services.Implementation
             await _cancelledCommandRepository.MarkAsCancelled(commandId);
         }
 
-        private async Task<string> ScheduleCommand(ScheduledMessageRecurrenceEnum frequency, ICommand<bool> command, DateTime? initialExecutionDateTimeUtc, string optionalMessageId = null)
+        public async Task<string> ScheduleCommand(ScheduledMessageRecurrenceEnum frequency, ICommand<bool> command, DateTime? initialExecutionDateTimeUtc, string optionalMessageId = null)
         {
             if (command == null) throw new ArgumentNullException(nameof(command));
             if (initialExecutionDateTimeUtc.HasValue && initialExecutionDateTimeUtc < DateTime.UtcNow)
             {
                 throw new ArgumentException("Commands cannot be scheduled to run in the past");
+            }
+
+            if (frequency == ScheduledMessageRecurrenceEnum.DoesNotRecur && !initialExecutionDateTimeUtc.HasValue)
+            {
+                throw new ArgumentException("A one off command must have an execution date", nameof(initialExecutionDateTimeUtc));
             }
 
             ScheduledMessage message = CreateScheduledMessage(command, initialExecutionDateTimeUtc, optionalMessageId, frequency);

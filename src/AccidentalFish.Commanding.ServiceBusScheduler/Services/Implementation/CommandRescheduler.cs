@@ -31,6 +31,11 @@ namespace AccidentalFish.Commanding.ServiceBusScheduler.Services.Implementation
                 return false;
             }
 
+            if (message.Recurrence == ScheduledMessageRecurrenceEnum.DoesNotRecur)
+            {
+                return false;
+            }
+
             DateTime newScheduledAtUtc = _dateCalculator.NextScheduledAtUtc(message.ScheduledAtUtc, message.Recurrence);
 
             ScheduledMessage newMessage = new ScheduledMessage
