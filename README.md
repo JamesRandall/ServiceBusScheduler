@@ -1,5 +1,9 @@
 # Service Bus Scheduler
 
+![Master build status](https://accidentalfish.visualstudio.com/Service%20Bus%20Scheduler/_apis/build/status/Service%20Bus%20Scheduler-ASP.NET%20Core-CI?branchName=master)
+
+![Production build status](https://accidentalfish.visualstudio.com/Service%20Bus%20Scheduler/_apis/build/status/Service%20Bus%20Scheduler-ASP.NET%20Core-CI?branchName=production)
+
 This library works in conjunction with the mediator / commanding framework [AzureFromTheTrenches.Commanding](https://commanding.azurefromthetrenches.com/) to provide command scheduling capabilities via the Azure Service Bus and supports automatically recurring events.
 
 The use of the Service Bus makes it easy, cheap and convenient to dynamically generate scheduled events based on (for example) user input but has the drawback of being imprecise (you control the visibility on the queue so a busy queue and a slow backlogged processor could lead to a delay).
