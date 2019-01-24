@@ -1,8 +1,8 @@
 # Service Bus Scheduler
 
-![Master build status](https://accidentalfish.visualstudio.com/Service%20Bus%20Scheduler/_apis/build/status/Service%20Bus%20Scheduler-ASP.NET%20Core-CI?branchName=master)
+![Master build status](https://accidentalfish.visualstudio.com/Service%20Bus%20Scheduler/_apis/build/status/Service%20Bus%20Scheduler-ASP.NET%20Core-CI?branchName=master) Master
 
-![Production build status](https://accidentalfish.visualstudio.com/Service%20Bus%20Scheduler/_apis/build/status/Service%20Bus%20Scheduler-ASP.NET%20Core-CI?branchName=production)
+![Production build status](https://accidentalfish.visualstudio.com/Service%20Bus%20Scheduler/_apis/build/status/Service%20Bus%20Scheduler-ASP.NET%20Core-CI?branchName=production) Production
 
 This library works in conjunction with the mediator / commanding framework [AzureFromTheTrenches.Commanding](https://commanding.azurefromthetrenches.com/) to provide command scheduling capabilities via the Azure Service Bus and supports automatically recurring events.
 
